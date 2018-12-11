@@ -1,0 +1,82 @@
+{
+  "name": "tarojs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "dev:weapp": "cross-env NODE_ENV=dev npx taro build --type weapp --watch",
+    "dev:swan": "npm run build:swan -- --watch",
+    "dev:alipay": "npm run build:alipay -- --watch",
+    "dev:h5": "npm run build:h5 -- --watch",
+    "dev:rn": "npm run build:rn -- --watch",
+    "build:weapp": "cross-env NODE_ENV=prod npx taro build --type weapp",
+    "build:swan": "npx taro build --type swan",
+    "build:alipay": "npx taro build --type alipay",
+    "build:h5": "npx taro build --type h5",
+    "build:rn": "npx taro build --type rn",
+    "lint": "cross-env NODE_ENV=production eslint src/ --fix"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@tarojs/async-await": "1.2.0-beta.13",
+    "@tarojs/components": "1.2.0-beta.13",
+    "@tarojs/redux": "1.2.0-beta.13",
+    "@tarojs/redux-h5": "1.2.0-beta.13",
+    "@tarojs/router": "1.2.0-beta.13",
+    "@tarojs/taro": "1.2.0-beta.13",
+    "@tarojs/taro-alipay": "1.2.0-beta.13",
+    "@tarojs/taro-h5": "1.2.0-beta.13",
+    "@tarojs/taro-swan": "1.2.0-beta.13",
+    "@tarojs/taro-weapp": "1.2.0-beta.13",
+    "dva-core": "^1.4.0",
+    "dva-loading": "^2.0.6",
+    "flyio": "^0.6.2",
+    "nervjs": "^1.3.5",
+    "qs": "^6.6.0",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "taro-ui": "^1.4.0"
+  },
+  "devDependencies": {
+    "@tarojs/cli": "1.2.0-beta.13",
+    "@tarojs/plugin-babel": "1.2.0-beta.13",
+    "@tarojs/plugin-csso": "1.2.0-beta.13",
+    "@tarojs/plugin-less": "1.2.0-beta.13",
+    "@tarojs/plugin-uglifyjs": "1.2.0-beta.13",
+    "@tarojs/webpack-runner": "1.2.0-beta.13",
+    "@types/react": "^16.4.8",
+    "@types/webpack-env": "^1.13.6",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-taro": "1.2.0-beta.13",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-taro": "1.2.0-beta.13",
+    "husky": "^1.1.4",
+    "lint-staged": "^8.0.4",
+    "prettier": "^1.15.2",
+    "pretty-quick": "^1.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "cross-env NODE_ENV=production lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "pretty-quick --staged",
+      "eslint src/ --fix",
+      "git add"
+    ]
+  }
+}
