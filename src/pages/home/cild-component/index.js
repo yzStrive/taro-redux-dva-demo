@@ -11,6 +11,8 @@ export default class ChildComponent extends Component {
   render() {
     const { testObj, testArr } = this.props
     const objMapToList = Object.keys(testObj).map(key => {
+      // const value = testObj[key]
+      // 把jsx的testObj[key]使用value替换不会出问题,不替换这里的值也是有问题的
       return (
         <Text key={key}>
           {key}： {testObj[key]}
